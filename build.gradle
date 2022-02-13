@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version "$SPRING_BOOT"
+}
+
+group 'net.vanderkast.wishlists'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web:$SPRING_BOOT"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:$SPRING_BOOT"
+    implementation "org.springframework.boot:spring-boot-starter-security:$SPRING_BOOT"
+
+    implementation 'org.postgresql:postgresql:42.3.2'
+    implementation 'commons-codec:commons-codec:1.15'
+
+    compileOnly "org.projectlombok:lombok:$LOMBOK"
+    annotationProcessor "org.projectlombok:lombok:$LOMBOK"
+
+
+    testCompileOnly "org.projectlombok:lombok:$LOMBOK"
+    testAnnotationProcessor "org.projectlombok:lombok:$LOMBOK"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$JUNIT"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$JUNIT"
+}
+
+test {
+    useJUnitPlatform()
+}
